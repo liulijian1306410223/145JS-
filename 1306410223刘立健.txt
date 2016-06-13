@@ -1,0 +1,143 @@
+
+
+第二次
+1、请简要说明数组的常用方法，包括参数含义、返回值、方法产生的影响和作用（如pop ，无参数，返回值为数组最末一位元素，此方法会将数组最末一位元素删除）;
+      concat            可有多个参数，参数为数组         合并多个数组
+      join              可以无参数，也可有字符串参数     把数组中的全部元素连接在一起形成一个字符串，加入字符串参数时,参数分隔符。
+
+      toString          无参数                         用字符串返回数组
+        
+      indexOf           有参数                         找到参数所在数组里第一次出现的位置
+
+      lastIndexOf       有参数                         找到参数所在数组里最后一次出现的位置
+
+      slice             两个数值参数                    提取一个子集，第一个参数指定提取子集的开始索引值，第二个参数为提取元素的数量
+
+      sort              可传递函数参数决定升序还是降序    将数组中的元素排序，可传递函数进去进行升降序，例如：array.sort(function(a,b){return a-b;})                               
+      splice            有三个参数                      在数组中添加或删除指定的一个或多个元素，array.splice(index, howmany, [new elements])，index从什么位置开始操作，howmany要删除多少个元素，第三个参数为可选参数。
+
+
+
+
+
+2、编写一个genArr函数，要求按传入的参数n（>0,数值类型）返回一个1个数组，数组的元素为[1,2,4,...,2n]，
+     function genArr(n){
+      if(i<=n){
+        return false;
+      }
+     var a=[];                      
+     for(var i=1;i<=n;i++){
+         a.push(i*2)
+      }
+ 	return a;
+}
+
+3、编写一个cmpArr函数,传入的第一个参数为arr（数组类型，数组元素为数值类型），第二个参数为n（>0,数值类型），返回从下标0一直到下标n-1的数组元素乘积，n比传入的数组长度长的话，计算所有数组元素的乘积（如cmpArr（[1,2,3],3），返回1*2*3=6;cmpArr（[1,2,3,4],5）,返回1*2*3*4=24）;
+function cmpArr(arr,n){
+	var sum=1;
+	var i;
+	if(n<=0){
+		return false;
+	}
+	else if(n>arr.length){
+		for(i=1;i<arr.length;i++){
+			sum*=arr[i];
+		}
+	}
+	else{
+		for(i=1;i<n;i++){
+			sum=sum*arr[i];
+		}
+	}
+	return sum;
+}
+
+
+4、编写一个sortArr函数，传入的第一个参数为arr（数组类型，数组元素为数值类型），第二个参数为sw（bool类型），要求sw为true的时候，返回arr的升序排序结果，sw为false的时候，返回arr的降序排序结果;
+function sortArr(arr,sw){
+	if(arr==true){
+		arr.sort(function(i,j){
+			return i-j;
+		});
+	}
+	else if(sw==false){
+		arr.sort(function(i,j){
+			return i-j;
+		});
+		else{
+			return false;
+		}
+	returm arr;
+}
+
+
+5、编写一个filterArr函数,传入的第一个参数为arr（数组类型，数组元素为数值类型），第二个参数为n（数值类型）, 返回arr中为n的倍数的元素组成的一个新数组;
+function fileArr(arr,n){
+	var i=[];
+	    j;
+	    for(j=0;j<arr.length;j++){
+	    	if(arr[j]%n==0){
+	    		i.push(arr[i]);
+	    	}
+	    }
+	    return i;
+}
+
+
+
+6、编写一个uniqArr函数,传入的第一个参数为arr（数组类型，数组元素为数值类型）, 去掉重复元素，返回arr中为不重复元素组成的一个新数组（如 [1,2,1,2,3],执行函数后返回[1,2,3]）;
+function  uniqArr(arr){
+	var i,j;
+	for(i=0;i<arr.length-1;i++){
+		for(j=i+1;j<arr.length;j++){
+			if(arr[i]==arr[j]){
+				arr.splice(i,j);
+				j--;
+			}
+		}
+	}
+	return arr;
+}
+
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+     int n,m,i,c;
+     int j=0,k=0;
+     int a[50],b[50];
+     cout<<"请输入山周围的洞口总数: ";
+     cin>>n;
+     cout<<endl<<"请输入狼每次经过洞口的个数: ";
+     cin>>m;
+     cout<<endl<<"洞口号码依次为:";
+     for(i=0;i<n;i++)
+     {
+         a[i]=i;
+         cout<<a[i]<<" ";
+     }
+     cout<<endl<<endl<<"狼依次经过的洞口号码为: 0 ";
+     while(c!=0)
+     {
+         k+=m;
+         c=k%n;
+         b[c]=c;
+         j++;
+         cout<<b[c]<<" ";
+     }
+     if(j==n)
+         cout<<endl<<endl<<"兔子没有幸免的机会"<<endl;
+     else
+     {
+         cout<<endl<<endl<<"兔子有幸免的机会"<<endl;
+         for(i=0;i<n;i++)
+             if(b[i]!=a[i])
+                 cout<<endl<<"兔子可以藏在"<<i<<"洞口中"<<endl;
+     }
+     return 0;
+}
+提问者评价
+谢谢!
+
